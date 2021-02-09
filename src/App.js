@@ -13,7 +13,7 @@ import {Switch, Route, withRouter, Redirect} from 'react-router-dom';
 //COmponent import
 import SignIn from './pages/sign-in/sign-in.component';
 import SignUp from './pages/sign-up/sign-up.component';
-
+import {Footer} from './components/footer/footer.component';
 import Homepage from './pages/homepage/homepage.component';
 //import Header from './components/header/header.component';
 
@@ -54,6 +54,7 @@ class App extends React.Component {
           <Route exact path="/signup" component={SignUp} />
           <Route exact path="/" component={Homepage} />
         </Switch>
+        <Footer />
       </div>
     )
   }
@@ -71,3 +72,16 @@ export default withRouter(connect(mapStateToProps, mapDispatchToProps)(App));
 
 // To push app on heroku heroku create app-name --buildpack https://github.com/mars/create-react-app-buildpack.git
 // to deploy -> git push heroku master
+
+
+
+//Things to fix 
+// 1 Footer and displaying of components
+// 2 Poduct section
+// 3
+
+
+// Things to do 10-2-21
+//1 Register page
+//2 Error logging and showing
+//3 if time then work on products section too

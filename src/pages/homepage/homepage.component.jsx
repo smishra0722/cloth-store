@@ -10,13 +10,14 @@ import {Redirect} from 'react-router-dom';
 
 //Component import
 import {Banner} from '../../components/banner/banner.component';
-
+import {ProductsSection} from '../../components/products-section/products-section.component';
 const Homepage = ({currentUser}) => {
     
     return (
         <div className='homepage'>
         <HeaderMod />
         <Banner />
+        <ProductsSection />
         </div>
 )}
 

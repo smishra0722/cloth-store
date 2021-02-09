@@ -1,0 +1,14 @@
+.products-section {
+    display: flex;
+    flex-direction: column;
+    max-width: 1440px;
+    margin: 0 auto;
+    padding: 3rem 0;
+
+    .section-title{
+        font-family: 'Abril Fatface', cursive;
+        font-size: 1.5rem;
+        text-align: center;
+        margin-bottom: 3rem;
+    }
+}
