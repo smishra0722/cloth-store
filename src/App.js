@@ -82,6 +82,17 @@ export default withRouter(connect(mapStateToProps, mapDispatchToProps)(App));
 
 
 // Things to do 10-2-21
+//Refactor products section
+
 //1 Register page
 //2 Error logging and showing
 //3 if time then work on products section too
+
+
+
+// whats left to do
+// adding pages for specific category
+// add to cart for them
+// displaying items on cart
+// checkout
+// payment

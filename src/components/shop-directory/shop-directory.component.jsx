@@ -6,7 +6,7 @@ import CollectionItem from '../collection-item/collection-item.component';
 class ShopDirectory extends React.Component {
     constructor() {
         super();
-
+        //needs refactoring here ... dividing into two one for product category second for gender
         this.state = {
             directorySections: [{
                 title: 'hats',
