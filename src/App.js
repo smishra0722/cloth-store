@@ -66,3 +66,8 @@ const mapDispatchToProps = (dispatch) => ({
 });
 
 export default withRouter(connect(mapStateToProps, mapDispatchToProps)(App));
+
+
+
+// To push app on heroku heroku create app-name --buildpack https://github.com/mars/create-react-app-buildpack.git
+// to deploy -> git push heroku master
