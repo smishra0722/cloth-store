@@ -1,0 +1,19 @@
+.carousel{
+    height: 600px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: burlywood;
+    background-image: url('../../assets//hannah-morgan-ycVFts5Ma4s-unsplash.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-blend-mode: multiply;
+    list-style: none;
+
+    &-content {
+        color: white;
+        font-size: 4rem;
+        font-family: 'Kaushan Script', cursive;
+    }
+}

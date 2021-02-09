@@ -1,0 +1,37 @@
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    padding: 3rem 4rem;
+
+    &-logo {
+        font-family: 'Archivo Black', sans-serif;
+        font-size: 1.5rem;
+        cursor: pointer;
+    }
+
+    &-navigation {
+        display: flex;
+        flex-direction: row;
+        .links {
+            
+
+            .link {
+                display: inline-block;
+                cursor: pointer;
+
+                &:not(:last-child) {
+                    margin-right: 2rem;
+                }
+                &:hover {
+                    color: grey;
+                }
+            }
+        }
+
+        .cart-icon {
+            margin-left: 2rem;
+        }
+    }
+}
