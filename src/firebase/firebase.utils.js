@@ -24,7 +24,7 @@ const config = {
   export const SignInWithGoogle = () => auth.signInWithPopup(provider);
  
   //Firestore setup
-  export const createUserProfile = async (userAuth, ...otherDetails) => {
+  export const createUserProfile = async (userAuth, otherDetails) => {
       console.log(userAuth);
       if(!userAuth) return;
       const userRef = firestore.doc(`/users/${userAuth.uid}`);
@@ -33,12 +33,16 @@ const config = {
       if(!snapshot.exists) {
           const {displayName, email} = userAuth;
           const createdAt = new Date();
-          await userRef.set({
-            displayName,
-            email,
-            createdAt,
-            ...otherDetails
-          });
+          try {
+            await userRef.set({
+              displayName,
+              email,
+              createdAt,
+              ...otherDetails
+            });
+          } catch(error) {
+            console.log(error.message);
+          }
       }
 
       return userRef;
