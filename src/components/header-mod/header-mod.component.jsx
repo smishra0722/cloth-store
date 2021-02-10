@@ -65,8 +65,8 @@ const HeaderMod = ({match, currentUser, history}) => {
                 <div className='header'>
                 <div className='header-top'>
                     <div className='header-top-logo'><div className='logo-icon' onClick={() => history.push('/')}><LogoIcon className='logo' /></div><span className='site-title'>Cloth Store</span></div>
-                    <div className='right'><div className='cart-icon'><Cart /><span className='item-count'>0</span></div>{currentUser?<span className='sign-out' onClick={() => auth.signOut()}>Sign out</span>:<span className='sign-out' onClick={() => history.push('/signin')}>Sign In</span>}</div>
-                </div>
+                    <div className='right'><div className='cart-icon'><Cart /><span className='item-count'>0</span></div>{currentUser?<span className='sign-out' onClick={() => auth.signOut()}>Sign out</span>:<span className='sign-out' onClick={() => history.push('/signin')}>Sign In</span>}{currentUser?<div className='user-info'>{currentUser.displayName.toUpperCase().slice(0, 1)}</div>:''}</div>
+                    </div>
                     <div className='header-bottom'>
                         <ul className='navigation'>
                         <li className='link'>Home</li>
