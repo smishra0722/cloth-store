@@ -1,0 +1,14 @@
+.user-info {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    width: 300px;
+    height: 100px;
+    top: 3.5rem;
+    right: 0;
+    background-color: white;
+    box-shadow: 1px 2px 3px black;
+    border-radius: .3rem;
+    border: 1px solid grey;
+}

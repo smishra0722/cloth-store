@@ -5,4 +5,8 @@ const currentUser = (user) => ({
     payload: user
 });
 
+export const toggleUserSec = (user) => ({
+    type: USER_ACTION_TYPES.TOGGLE_USER_ICON
+});
+
 export default currentUser;

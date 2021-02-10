@@ -36,7 +36,7 @@ class SignIn extends React.Component{
     }
     render() {
         const {email, password, errorMessage} = this.state;
-        const err=  errorMessage?errorMessage.indexOf('.'):'';
+        
         return (
             <div className='sign-in'>
                 <h2 className='title'>Sign In</h2>
@@ -44,7 +44,7 @@ class SignIn extends React.Component{
                     <FormInput handleChange={this.handleChange} type='email' name='email' onChange={this.handleChange} value={email} label='enter email' />
                     <FormInput handleChange={this.handleChange} type='password' name='password' onChange={this.handleChange} value={password} label='enter password' />
                     <div className='button-container'>
-                        <CustomButton className='custom-button'>Sign In</CustomButton>
+                        <CustomButton className='custom-button' type='submit'>Sign In</CustomButton>
                         <CustomButton className='custom-button google-button' onClick={SignInWithGoogle}>Google Sign In</CustomButton>
                     </div>
                 </form>

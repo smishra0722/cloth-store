@@ -51,6 +51,7 @@
 
     &-top{
         display: flex;
+        
         flex-direction: row;
         justify-content: space-between;
         align-items: center;
@@ -91,7 +92,9 @@
         
         
         .right{
+            position: relative;
             display: flex;
+
             flex-direction: row;
             align-items: center;
 
@@ -120,7 +123,10 @@
                 }
             }
 
-            .user-info {
+            .user-info-btn {
+                display: flex;
+                justify-content: center;
+                align-items: center;
                 padding: 1rem;
                 margin-left: 1rem;
                 background-color: rgb(233, 81, 81);
@@ -128,10 +134,15 @@
                 color: white;
                 cursor: pointer;
             }
+            .user-icon {
+                height: 1rem;
+                width: 1rem;
+            }
         }
     }
 
     &-bottom{
+        
         display: flex;
         width: 100%;
         justify-content: center;
