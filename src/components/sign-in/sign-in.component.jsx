@@ -2,37 +2,41 @@ import React from 'react';
 import './sign-in.styles.scss';
 
 //Firebase import
-import {SignInWithGoogle, auth, firebase} from '../../firebase/firebase.utils';
+import {SignInWithGoogle, auth} from '../../firebase/firebase.utils';
 
 
 //Component import 
 import FormInput from '../form-input/form-input.component';
 import CustomButton from '../custom-button/custom-button.component';
+import {ErrorMessage} from '../error-message/error-message.component';
+
 class SignIn extends React.Component{
     constructor() {
         super();
 
         this.state = {
             email: '',
-            password: ''
+            password: '',
+            errorMessage: null
         }
     }
     handleSubmit = async (event) => {
         event.preventDefault();
         const {email, password} = this.state;
         try{
-            let user = await auth.signInWithEmailAndPassword(email, password);
+            await auth.signInWithEmailAndPassword(email, password);
         } catch(error) {
-            console.log(error.message);
+            this.setState({errorMessage: error.message});
         }
         this.setState({email: '', password: ''});
     }
     handleChange = (event) => {
         const {name, value} = event.target;
-        this.setState({[name]: value});
+        this.setState({[name]: value, errorMessage: null});
     }
     render() {
-        const {email, password} = this.state;
+        const {email, password, errorMessage} = this.state;
+        const err=  errorMessage?errorMessage.indexOf('.'):'';
         return (
             <div className='sign-in'>
                 <h2 className='title'>Sign In</h2>
@@ -44,6 +48,9 @@ class SignIn extends React.Component{
                         <CustomButton className='custom-button google-button' onClick={SignInWithGoogle}>Google Sign In</CustomButton>
                     </div>
                 </form>
+                {
+                    errorMessage?<ErrorMessage error={errorMessage}/>:''
+                }
             </div>
         )
     }

@@ -10,6 +10,8 @@ import {withRouter} from 'react-router-dom';
 //Component import 
 import FormInput from '../form-input/form-input.component';
 import CustomButton from '../custom-button/custom-button.component';
+import {ErrorMessage} from '../error-message/error-message.component';
+
 class SignUp extends React.Component{
     constructor() {
         super();
@@ -19,6 +21,7 @@ class SignUp extends React.Component{
             email: '',
             password: '',
             confirmPassword: '',
+            errorMessage: null,
             registeredSuccesfully: false
         }
     }
@@ -26,7 +29,7 @@ class SignUp extends React.Component{
         event.preventDefault();
         const {displayName, email, password, confirmPassword} = this.state;
         const {history} = this.props;
-        if(password !== confirmPassword) return;
+        if(password == confirmPassword) {
         try {
             let {user} = await auth.createUserWithEmailAndPassword(email, password);
             await createUserProfile(user, {displayName});
@@ -35,16 +38,18 @@ class SignUp extends React.Component{
             this.setState({email: '', password: '', registeredSuccesfully: true});
             auth.signOut();
         } catch(error) {
-            console.log(error.message);
+            this.setState({errorMessage: error.message});
         }
-        
+    } else {
+        this.setState({errorMessage: 'Passwords Don\'t Match.'});
+    }
     }
     handleChange = (event) => {
         const {name, value} = event.target;
-        this.setState({[name]: value});
+        this.setState({[name]: value, errorMessage: null});
     }
     render() {
-        const {displayName, email, password, confirmPassword, registeredSuccesfully} = this.state;
+        const {displayName, email, password, confirmPassword, registeredSuccesfully, errorMessage} = this.state;
         const {history} = this.props;
         return (
             <div className='sign-up'>
@@ -61,7 +66,9 @@ class SignUp extends React.Component{
                         <CustomButton className='custom-button'>Register</CustomButton>
                     </div>
                 </form>
-                
+                {
+                    errorMessage?<ErrorMessage error={errorMessage} />: ''
+                }
             </div>
         )
     }
